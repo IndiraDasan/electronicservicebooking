@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectroCare - Electronics Service Booking | Kannur</title>
+    <title>Vels Home Appliance Service | Expert Repair in Coonoor | 24/7 Available</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,15 +13,21 @@
         }
 
         :root {
-            --primary: #2563eb;
-            --primary-dark: #1e40af;
-            --accent: #f59e0b;
-            --success: #10b981;
-            --danger: #ef4444;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-light: #f9fafb;
-            --border: #e5e7eb;
+            --primary: #1e3c72;
+            --primary-light: #2a5298;
+            --accent: #ff6b35;
+            --accent-light: #ff8555;
+            --success: #06d6a0;
+            --warning: #ffd60a;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --text-muted: #999;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border: #e9ecef;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html {
@@ -28,26 +35,37 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background: #ffffff;
+            background: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        /* ============ UTILITY CLASSES ============ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 5rem 2rem;
         }
 
         /* ============ HEADER & NAVIGATION ============ */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1.2rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
         }
 
         nav {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -55,88 +73,118 @@
 
         .logo {
             font-size: 1.8rem;
-            font-weight: bold;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.7rem;
+            letter-spacing: -0.5px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-
-        .cta-btn {
+        .logo-icon {
+            width: 40px;
+            height: 40px;
             background: var(--accent);
-            color: var(--text-dark);
-            padding: 0.7rem 1.5rem;
-            border-radius: 5px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
-        .cta-btn:hover {
+        .cta-button:hover {
+            background: var(--accent-light);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .nav-right {
+                gap: 0.5rem;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
             }
         }
 
         /* ============ HERO SECTION ============ */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-            min-height: 500px;
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 600px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            overflow: hidden;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,10 600,50 T1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"></path></svg>');
-            background-size: cover;
-            opacity: 0.5;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: slideUp 0.8s ease-out;
+            max-width: 700px;
+            text-align: center;
+            animation: slideInDown 0.8s ease-out;
         }
 
-        @keyframes slideUp {
+        @keyframes slideInDown {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -145,73 +193,177 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
+            font-weight: 800;
             margin-bottom: 1rem;
-            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
         }
 
-        .hero p {
+        .hero-subtitle {
             font-size: 1.3rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             opacity: 0.95;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 2.5rem;
         }
 
         .btn {
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: var(--transition);
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
         }
 
         .btn-primary {
             background: var(--accent);
-            color: var(--text-dark);
+            color: white;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
         }
 
         .btn-primary:hover {
+            background: var(--accent-light);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
 
         .btn-secondary:hover {
-            background: white;
-            color: #667eea;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background: #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 1.5rem;
+                min-height: 500px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ============ TRUST SECTION ============ */
+        .trust-section {
+            background: var(--bg-light);
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .trust-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .trust-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .trust-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+
+        .trust-label {
+            font-size: 0.95rem;
+            color: var(--text-light);
         }
 
         /* ============ SERVICES SECTION ============ */
         .services {
-            padding: 4rem 2rem;
-            background: var(--bg-light);
+            background: var(--bg-white);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
+        .section-header {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-top: 1.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .services-grid {
@@ -221,199 +373,319 @@
         }
 
         .service-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2.5rem;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-            cursor: pointer;
-            border-top: 4px solid var(--primary);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--primary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
 
         .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .service-card h3 {
             font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 700;
         }
 
         .service-card p {
             color: var(--text-light);
-            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
         }
 
-        .service-card .btn {
-            width: 100%;
+        /* ============ WHY US SECTION ============ */
+        .why-us {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
         }
 
-        /* ============ FEATURES SECTION ============ */
-        .features {
-            padding: 4rem 2rem;
-            background: white;
-        }
-
-        .features-grid {
+        .why-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-item {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            flex-shrink: 0;
-        }
-
-        .feature-item h4 {
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-item p {
-            color: var(--text-light);
-        }
-
-        /* ============ BOOKING FORM ============ */
-        .booking {
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-        }
-
-        .booking .section-title {
-            color: white;
-            margin-bottom: 2rem;
-        }
-
-        .form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: rgba(255,255,255,0.95);
-            padding: 2.5rem;
-            border-radius: 10px;
-            color: var(--text-dark);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid var(--border);
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .booking-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .booking-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        .booking-btn:active {
-            transform: translateY(0);
-        }
-
-        /* ============ LOCATION & CONTACT ============ */
-        .location {
-            padding: 4rem 2rem;
-            background: var(--bg-light);
-        }
-
-        .location-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             gap: 3rem;
+        }
+
+        .why-item {
+            padding: 2rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+        }
+
+        .why-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+        }
+
+        .why-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .why-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .why-item p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* ============ CTA WITH CONFIDENCE ============ */
+        .confidence-section {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .confidence-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
             align-items: center;
         }
 
-        .location-info {
+        .confidence-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .confidence-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+        }
+
+        .confidence-list {
+            list-style: none;
+        }
+
+        .confidence-list li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.3rem;
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .confidence-list i {
+            color: var(--success);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .confidence-image {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            border-radius: 16px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            color: white;
+            font-size: 5rem;
+        }
+
+        @media (max-width: 968px) {
+            .confidence-content {
+                grid-template-columns: 1fr;
+            }
+
+            .confidence-image {
+                min-height: 300px;
+            }
+        }
+
+        /* ============ REVIEWS SECTION ============ */
+        .reviews {
+            background: var(--bg-light);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
             background: white;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
 
-        .location-info h3 {
-            margin-bottom: 1.5rem;
+        .review-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .review-stars {
+            color: var(--warning);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.3rem;
+        }
+
+        .review-text {
+            font-size: 1rem;
             color: var(--text-dark);
-            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-style: italic;
         }
 
-        .info-item {
-            margin-bottom: 1.5rem;
+        .review-author {
             display: flex;
+            align-items: center;
             gap: 1rem;
         }
 
-        .info-item strong {
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .review-info h4 {
+            font-size: 1rem;
             color: var(--primary);
-            min-width: 100px;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .review-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ============ CONTACT SECTION ============ */
+        .contact {
+            background: white;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding-top: 1rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-item-content h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            font-weight: 700;
+        }
+
+        .contact-item-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .contact-item-content a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .contact-item-content a:hover {
+            color: var(--primary);
         }
 
         .map-container {
-            border-radius: 10px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            height: 350px;
+            box-shadow: var(--shadow);
+            height: 400px;
         }
 
         .map-container iframe {
@@ -422,34 +694,87 @@
             border: none;
         }
 
-        @media (max-width: 768px) {
-            .location-content {
+        @media (max-width: 968px) {
+            .contact-wrapper {
                 grid-template-columns: 1fr;
             }
+
             .map-container {
                 height: 300px;
             }
         }
 
+        /* ============ CTA BUTTONS ============ */
+        .cta-container {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-call {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-call:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: #25d366;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4);
+        }
+
         /* ============ FOOTER ============ */
         footer {
-            background: var(--text-dark);
+            background: var(--primary);
             color: white;
-            padding: 2rem;
-            text-align: center;
+            padding: 3rem 0 1rem;
         }
 
         .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-bottom: 2rem;
         }
 
-        .footer-section h4 {
+        .footer-section h3 {
             margin-bottom: 1rem;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
 
         .footer-section ul {
@@ -457,13 +782,14 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
 
         .footer-section a {
-            color: #d1d5db;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
+            font-size: 0.95rem;
         }
 
         .footer-section a:hover {
@@ -471,333 +797,310 @@
         }
 
         .footer-bottom {
-            border-top: 1px solid #4b5563;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
             padding-top: 2rem;
-            color: #9ca3af;
-        }
-
-        /* ============ ANIMATIONS ============ */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-fade {
-            animation: fadeIn 0.6s ease-out;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
         }
 
         /* ============ RESPONSIVE ============ */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .section-padding {
+                padding: 3rem 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
             .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .nav-links {
-                display: none;
+                font-size: 2.2rem;
             }
         }
 
-        /* ============ SUCCESS MESSAGE ============ */
-        .success-message {
-            display: none;
-            background: var(--success);
-            color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1.5rem;
-            text-align: center;
+        /* ============ ANIMATIONS ============ */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .success-message.show {
-            display: block;
-            animation: slideUp 0.3s ease-out;
-        }
-
-        .loading {
-            display: none;
-            text-align: center;
-            color: var(--primary);
-        }
-
-        .spinner {
-            border: 4px solid var(--border);
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .animate-slide {
+            animation: slideIn 0.6s ease-out;
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER & NAVIGATION -->
+    <!-- HEADER -->
     <header>
-        <nav>
-            <div class="logo">⚡ ElectroCare</div>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#features">Why Us</a></li>
-                <li><a href="#booking">Book Now</a></li>
-                <li><a href="#location">Contact</a></li>
-            </ul>
-            <a href="#booking" class="cta-btn">Book Service</a>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-tools"></i></div>
+                <span>Vels Appliance</span>
+            </div>
+            <div class="nav-right">
+                <a href="tel:+919876543210" class="cta-button">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <a href="https://wa.me/919876543210" class="cta-button" style="background: #25d366;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Professional Electronics Repair Service in Kannur</h1>
-            <p>Fast, Reliable & Affordable Repair for AC, Appliances & All Electronics</p>
+            <div class="hero-badge">
+                <i class="fas fa-check-circle"></i> Available 24/7 • Expert Service
+            </div>
+            <h1>Professional Home Appliance Repair Service</h1>
+            <p class="hero-subtitle">Fast, Reliable & Affordable Service for AC, Washing Machine, Refrigerator & All Electronics</p>
+            <p class="hero-subtitle" style="font-size: 1.1rem; opacity: 0.85;">Serving Coonoor with 15+ Years of Excellence</p>
             <div class="hero-buttons">
-                <a href="#booking" class="btn btn-primary">Book Now</a>
-                <a href="#services" class="btn btn-secondary">View Services</a>
+                <a href="tel:+919876543210" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <a href="https://wa.me/919876543210" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section id="services" class="services">
+    <!-- TRUST SECTION -->
+    <section class="trust-section">
         <div class="container">
-            <h2 class="section-title">Our Services</h2>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-award"></i></div>
+                    <div class="trust-value">500+</div>
+                    <div class="trust-label">Happy Customers</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-history"></i></div>
+                    <div class="trust-value">15+</div>
+                    <div class="trust-label">Years Experience</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-clock"></i></div>
+                    <div class="trust-value">24/7</div>
+                    <div class="trust-label">Available Service</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="trust-value">6 MON</div>
+                    <div class="trust-label">Service Warranty</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expert Services</h2>
+                <p>Complete repair and maintenance solutions for all your home appliances</p>
+            </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">❄️</div>
+                    <div class="service-icon"><i class="fas fa-snowflake"></i></div>
                     <h3>AC Repair & Service</h3>
-                    <p>Air conditioner maintenance, repair & gas refilling</p>
-                    <button class="btn btn-primary book-service" data-service="AC Repair">Book Now</button>
+                    <p>Professional maintenance, repair, and gas refilling for all AC brands</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">🧊</div>
+                    <div class="service-icon"><i class="fas fa-cube"></i></div>
                     <h3>Refrigerator Service</h3>
-                    <p>Fridge repair, maintenance & troubleshooting</p>
-                    <button class="btn btn-primary book-service" data-service="Refrigerator Service">Book Now</button>
+                    <p>Complete fridge repair, maintenance & troubleshooting solutions</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">🧺</div>
+                    <div class="service-icon"><i class="fas fa-water"></i></div>
                     <h3>Washing Machine</h3>
-                    <p>Wash machine repair & maintenance service</p>
-                    <button class="btn btn-primary book-service" data-service="Washing Machine Service">Book Now</button>
+                    <p>Repair & maintenance for front load and top load machines</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">🍳</div>
+                    <div class="service-icon"><i class="fas fa-blender"></i></div>
                     <h3>Mixer & Grinder</h3>
-                    <p>Mixer and grinder repair & replacement parts</p>
-                    <button class="btn btn-primary book-service" data-service="Mixer & Grinder">Book Now</button>
+                    <p>Motor repair and replacement parts for kitchen appliances</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">🔥</div>
-                    <h3>Iron Box & Heaters</h3>
-                    <p>Iron box, water heater & heater repair service</p>
-                    <button class="btn btn-primary book-service" data-service="Iron Box & Heaters">Book Now</button>
+                    <div class="service-icon"><i class="fas fa-thermometer-half"></i></div>
+                    <h3>Water Heater</h3>
+                    <p>Heating element replacement & complete maintenance service</p>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">📺</div>
+                    <div class="service-icon"><i class="fas fa-tv"></i></div>
                     <h3>TV & Electronics</h3>
-                    <p>Television, DVD player & other electronics repair</p>
-                    <button class="btn btn-primary book-service" data-service="TV & Electronics">Book Now</button>
+                    <p>Television repair and all electronic appliances troubleshooting</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FEATURES SECTION -->
-    <section id="features" class="features">
+    <!-- WHY US -->
+    <section class="why-us section-padding">
         <div class="container">
-            <h2 class="section-title">Why Choose ElectroCare?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">⚡</div>
-                    <div>
-                        <h4>Fast Service</h4>
-                        <p>Same-day service available in Kannur</p>
+            <div class="section-header" style="margin-bottom: 3rem; color: white;">
+                <h2 style="color: white;">Why Choose Vels?</h2>
+                <p style="color: rgba(255, 255, 255, 0.9);">Experience quality service at affordable prices</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-item">
+                    <div class="why-number">1</div>
+                    <h3>Expert Technicians</h3>
+                    <p>Certified & trained professionals with 15+ years combined experience</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">2</div>
+                    <h3>Quick Response</h3>
+                    <p>Same-day service available across Coonoor and surrounding areas</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">3</div>
+                    <h3>Quality Warranty</h3>
+                    <p>6 months warranty on all repair work and replacement parts</p>
+                </div>
+                <div class="why-item">
+                    <div class="why-number">4</div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden charges - quotes before work with detailed breakdown</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONFIDENCE -->
+    <section class="confidence-section">
+        <div class="container">
+            <div class="confidence-content">
+                <div class="confidence-text">
+                    <h2>Trust & Quality Service</h2>
+                    <p>We believe in honest, transparent service with no hidden charges. Your satisfaction is our priority.</p>
+                    <ul class="confidence-list">
+                        <li><i class="fas fa-check"></i> Certified & Trained Technicians</li>
+                        <li><i class="fas fa-check"></i> Original Spare Parts Only</li>
+                        <li><i class="fas fa-check"></i> Free Diagnosis & Consultation</li>
+                        <li><i class="fas fa-check"></i> 6 Months Warranty</li>
+                        <li><i class="fas fa-check"></i> Emergency Service Available</li>
+                        <li><i class="fas fa-check"></i> Home Service Provided</li>
+                    </ul>
+                </div>
+                <div class="confidence-image">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Customer Reviews</h2>
+                <p>Trusted by 500+ happy customers in Coonoor</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Excellent service! Technician was very professional and fixed my AC perfectly. Highly recommended for anyone in Coonoor."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">RA</div>
+                        <div class="review-info">
+                            <h4>Rajesh Aniruddh</h4>
+                            <p>AC Service - 2 months ago</p>
+                        </div>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">✅</div>
-                    <div>
-                        <h4>Certified Technicians</h4>
-                        <p>Experienced & trained repair professionals</p>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Great service and very reasonable prices. They came quickly and solved the problem. Will definitely use their services again."</p>
+                    <div class="review-author">
+                        <div class="review-avatar">SP</div>
+                        <div class="review-info">
+                            <h4>Sarah Paulson</h4>
+                            <p>Washing Machine - 1 month ago</p>
+                        </div>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💰</div>
-                    <div>
-                        <h4>Affordable Pricing</h4>
-                        <p>Competitive rates with transparent billing</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🔧</div>
-                    <div>
-                        <h4>Quality Work</h4>
-                        <p>90-day warranty on all repairs</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📱</div>
-                    <div>
-                        <h4>Easy Booking</h4>
-                        <p>Quick online booking & instant confirmation</p>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🏠</div>
-                    <div>
-                        <h4>Home Service</h4>
-                        <p>We come to your home to fix the problem</p>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text">"Trusted service provider in Coonoor. Very honest and transparent. My refrigerator is working like new now. Thank you!"</p>
+                    <div class="review-author">
+                        <div class="review-avatar">MK</div>
+                        <div class="review-info">
+                            <h4>Manoj Kumar</h4>
+                            <p>Refrigerator - 3 weeks ago</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BOOKING FORM SECTION -->
-    <section id="booking" class="booking">
+    <!-- CONTACT -->
+    <section class="contact section-padding">
         <div class="container">
-            <h2 class="section-title">Book Your Service Now</h2>
-            <div class="form-container">
-                <div class="success-message" id="successMessage">
-                    ✓ Service booking request submitted successfully! We will contact you soon.
-                </div>
-                <div class="loading" id="loading">
-                    <div class="spinner"></div>
-                    <p>Processing your booking...</p>
-                </div>
-                <form id="bookingForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="98765 43210" required>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service Type *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a service</option>
-                                <option value="AC Repair">AC Repair & Service</option>
-                                <option value="Refrigerator Service">Refrigerator Service</option>
-                                <option value="Washing Machine Service">Washing Machine Service</option>
-                                <option value="Mixer & Grinder">Mixer & Grinder Repair</option>
-                                <option value="Iron Box & Heaters">Iron Box & Heaters</option>
-                                <option value="TV & Electronics">TV & Electronics</option>
-                                <option value="Other">Other Electronics</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address">19/87, Krishnapuram Old Lakshmi Theater Coonoor, Old Lakshmi Theater Coonoor, Umari Cottage Conoor, Bazaar, Coonoor-643102, Tamil Nadu *</label>
-                        <input type="text" id="address" name="address" placeholder="Your location" required>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="date">Preferred Date *</label>
-                            <input type="date" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="time">Preferred Time *</label>
-                            <select id="time" name="time" required>
-                                <option value="">Select time</option>
-                                <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
-                                <option value="Afternoon (12 PM - 3 PM)">Afternoon (12 PM - 3 PM)</option>
-                                <option value="Evening (3 PM - 6 PM)">Evening (3 PM - 6 PM)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Problem Description *</label>
-                        <textarea id="message" name="message" placeholder="Describe the issue with your device" required></textarea>
-                    </div>
-
-                    <button type="submit" class="booking-btn">Confirm Booking</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- LOCATION & CONTACT SECTION -->
-    <section id="location" class="location">
-        <div class="container">
-            <h2 class="section-title">Our Location</h2>
-            <div class="location-content">
-                <div class="location-info">
-                    <h3>📍 ElectroCare - Kannur</h3>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
                     
-                    <div class="info-item">
-                        <strong>Address:</strong>
-                        <span>Kannur Electronics Service Center<br>Main Street, Kannur, Kerala</span>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-item-content">
+                            <h3>Location</h3>
+                            <p>Old Lakshmi Theater Road<br>Coonoor Bazaar, Coonoor<br>Tamil Nadu 643101</p>
+                        </div>
                     </div>
 
-                    <div class="info-item">
-                        <strong>Phone:</strong>
-                        <span><a href="tel:+919876543210" style="color: var(--primary);">+91 98765 43210</a></span>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div class="contact-item-content">
+                            <h3>Phone</h3>
+                            <a href="tel:+919876543210">+91 98765 43210</a>
+                        </div>
                     </div>
 
-                    <div class="info-item">
-                        <strong>Email:</strong>
-                        <span><a href="mailto:service@electrocare.com" style="color: var(--primary);">service@electrocare.com</a></span>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-item-content">
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/919876543210">+91 98765 43210</a>
+                        </div>
                     </div>
 
-                    <div class="info-item">
-                        <strong>Hours:</strong>
-                        <span>Mon - Sun: 9:00 AM - 8:00 PM<br>Emergency service available</span>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div class="contact-item-content">
+                            <h3>Hours</h3>
+                            <p>Mon-Sun: 8:00 AM - 8:00 PM<br>Emergency: 24/7 Available</p>
+                        </div>
                     </div>
 
-                    <div class="info-item">
-                        <strong>Service Area:</strong>
-                        <span>All areas in Kannur</span>
+                    <div class="cta-container">
+                        <a href="tel:+919876543210" class="btn-call">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/919876543210" class="btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
                     </div>
                 </div>
 
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.4897850800017!2d75.3711419!3d12.1812129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba5fb67b5e5e5e5%3A0x5e5e5e5e5e5e5e5e!2sKannur%2C%20Kerala%2C%20India!5e0!3m2!1sen!2sin!4v1234567890" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3905.5671223426236!2d76.79131412346816!3d11.349979544253647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8f8f8f8f8f8f9%3A0x1234567890abcdef!2sCoonoor!5e0!3m2!1sen!2sin!4v1234567890"></iframe>
                 </div>
             </div>
         </div>
@@ -805,153 +1108,45 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>⚡ ElectroCare</h4>
-                <p>Professional electronics repair & service in Kannur</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-tools"></i> Vels Appliance</h3>
+                    <p>Professional home appliance repair & service in Coonoor. Trusted by 500+ happy customers.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">AC Repair</a></li>
+                        <li><a href="#services">Refrigerator Service</a></li>
+                        <li><a href="#services">Washing Machine</a></li>
+                        <li><a href="#services">Water Heater</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><a href="tel:+919876543210"><i class="fas fa-phone"></i> +91 98765 43210</a></li>
+                        <li><a href="https://wa.me/919876543210"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li>Coonoor, Tamil Nadu</li>
+                        <li>24/7 Available</li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#features">Why Us</a></li>
-                    <li><a href="#booking">Book Service</a></li>
-                    <li><a href="#location">Contact</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Vels Home Appliance Service. All rights reserved. | Serving Coonoor with Excellence</p>
             </div>
-            <div class="footer-section">
-                <h4>Contact Info</h4>
-                <ul>
-                    <li><a href="tel:+919876543210">📞 +91 98765 43210</a></li>
-                    <li><a href="mailto:service@electrocare.com">📧 service@electrocare.com</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 ElectroCare. All rights reserved. | Serving Kannur with excellence</p>
         </div>
     </footer>
-
-    <script>
-        // ============================================================
-        // BOOKING FORM HANDLING
-        // ============================================================
-
-        const form = document.getElementById('bookingForm');
-        const successMessage = document.getElementById('successMessage');
-        const loadingDiv = document.getElementById('loading');
-        const bookServiceButtons = document.querySelectorAll('.book-service');
-
-        // Auto-fill service when clicking "Book Now" on service cards
-        bookServiceButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const service = this.getAttribute('data-service');
-                document.getElementById('service').value = service;
-                document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
-                document.getElementById('name').focus();
-            });
-        });
-
-        // Form submission handler
-        form.addEventListener('submit', async function(e) {
-            e.preventDefault();
-
-            // Show loading
-            loadingDiv.style.display = 'block';
-            successMessage.classList.remove('show');
-
-            // Collect form data
-            const formData = {
-                name: document.getElementById('name').value.trim(),
-                phone: document.getElementById('phone').value.trim(),
-                email: document.getElementById('email').value.trim(),
-                service: document.getElementById('service').value,
-                address: document.getElementById('address').value.trim(),
-                date: document.getElementById('date').value,
-                time: document.getElementById('time').value,
-                message: document.getElementById('message').value.trim()
-            };
-
-            try {
-                // Send to server API
-                const response = await fetch('/api/bookings', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    // Save to localStorage as backup
-                    let bookings = JSON.parse(localStorage.getItem('serviceBookings')) || [];
-                    bookings.push({...formData, timestamp: new Date().toLocaleString()});
-                    localStorage.setItem('serviceBookings', JSON.stringify(bookings));
-
-                    // Show success message
-                    loadingDiv.style.display = 'none';
-                    successMessage.classList.add('show');
-                    
-                    // Reset form
-                    form.reset();
-                    
-                    // Log to console
-                    console.log('✅ Booking successful:', result);
-
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        successMessage.classList.remove('show');
-                    }, 5000);
-
-                    // Scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    loadingDiv.style.display = 'none';
-                    alert('Error: ' + result.message);
-                }
-            } catch (error) {
-                loadingDiv.style.display = 'none';
-                console.error('Error:', error);
-                alert('Error submitting booking. Please try again.');
-            }
-        });
-
-        // Set minimum date to today
-        const dateInput = document.getElementById('date');
-        const today = new Date().toISOString().split('T')[0];
-        dateInput.setAttribute('min', today);
-
-        // Phone number formatting
-        document.getElementById('phone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 10) {
-                value = value.slice(0, 10);
-            }
-            e.target.value = value;
-        });
-
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                    const element = document.querySelector(href);
-                    if (element) {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-
-        // Log server status on page load
-        fetch('/api/health')
-            .then(res => res.json())
-            .then(data => console.log('✅ Server Status:', data))
-            .catch(err => console.log('⚠️ Server not responding'));
-    </script>
 
 </body>
 </html>
